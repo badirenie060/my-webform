@@ -247,10 +247,15 @@
       oxStates[label] = selectedBtn?.dataset.value || "";
     });
 
-    const timeParts = form.time.value.split(":");
-    const hour = timeParts[0] || "";
-    const minute = timeParts[1] || "";
-
+    const timeInput = form.querySelector('#time');
+    let hour = "";
+    let minute = "";
+    if (timeInput && timeInput.value) {
+      const timeParts = timeInput.value.split(":");
+      hour = timeParts[0] || "";
+      minute = timeParts[1] || "";
+    }
+    
     const data = {
       type: "test",
       date: form.date.value,
